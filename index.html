@@ -10,65 +10,7 @@
 
 </head>
 <body>
-    <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('[commandfor="mobile-menu"]');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const profileBtn = document.getElementById('profile-btn');
-            const profileMenu = document.getElementById('profile-menu');
-
-            // Toggle mobile menu
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    const isHidden = mobileMenu.hasAttribute('hidden');
-                    if (isHidden) {
-                        mobileMenu.removeAttribute('hidden');
-                    } else {
-                        mobileMenu.setAttribute('hidden', '');
-                    }
-                });
-            }
-
-            // Toggle profile dropdown
-            if (profileBtn && profileMenu) {
-                profileBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const isHidden = profileMenu.hasAttribute('hidden');
-                    if (isHidden) {
-                        profileMenu.removeAttribute('hidden');
-                    } else {
-                        profileMenu.setAttribute('hidden', '');
-                    }
-                });
-
-                // Close profile menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
-                        profileMenu.setAttribute('hidden', '');
-                    }
-                });
-
-                // Close profile menu when clicking on a link
-                const profileLinks = profileMenu.querySelectorAll('a');
-                profileLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        profileMenu.setAttribute('hidden', '');
-                    });
-                });
-            }
-
-            // Close mobile menu when clicking on a link
-            if (mobileMenu) {
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.setAttribute('hidden', '');
-                    });
-                });
-            }
-        });
-    </script>
+    
     <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-20 items-center justify-between gap-8">
@@ -182,10 +124,8 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
       <!-- Clothing -->
       <div class="group bg-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:scale-105">
-        <div class="aspect-square flex items-center justify-center bg-gray-300">
-          <svg class="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+        <div class="aspect-square flex items-center justify-center bg-gray-300 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop" alt="Clothing" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <div class="p-4 text-center">
           <h4 class="text-gray-700 font-semibold text-lg">CLOTHING</h4>
@@ -194,10 +134,8 @@
 
       <!-- Pants -->
       <div class="group bg-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:scale-105">
-        <div class="aspect-square flex items-center justify-center bg-gray-300">
-          <svg class="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+        <div class="aspect-square flex items-center justify-center bg-gray-300 overflow-hidden">
+          <img src="https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/683667s.jpg?im=Resize,width=750" alt="Pants" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <div class="p-4 text-center">
           <h4 class="text-gray-700 font-semibold text-lg">PANTS</h4>
@@ -206,10 +144,8 @@
 
       <!-- Shoes -->
       <div class="group bg-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer transform hover:scale-105">
-        <div class="aspect-square flex items-center justify-center bg-gray-300">
-          <svg class="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+        <div class="aspect-square flex items-center justify-center bg-gray-300 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop" alt="Shoes" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <div class="p-4 text-center">
           <h4 class="text-gray-700 font-semibold text-lg">ShOES</h4>
@@ -242,12 +178,10 @@
       <!-- Product 1 -->
       <div class="group">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://assets.bigcartel.com/product_images/327582156/embroidered-champion-packable-jacket-graphite-zoomed-in-61fff3d60fb75.jpg?auto=format&fit..." alt="Gothic Windbreaker" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">Gothic Windbreaker</h4>
-        <p class="text-gray-600 text-sm mb-2">$75</p>
+        <p class="text-gray-600 text-sm mb-2">IDR75</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -257,12 +191,10 @@
       <!-- Product 2 -->
       <div class="group">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://pictures.kartmax.in/cover/live/600x800/quality=6/sites/aPfvUDpPwMn1ZadNKhP7/product-images/PHJN000013_1.png" alt="SCA 1 Figure Jean" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">SCA 1 Figure Jean</h4>
-        <p class="text-gray-600 text-sm mb-2">$75</p>
+        <p class="text-gray-600 text-sm mb-2">IDR75</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -272,12 +204,10 @@
       <!-- Product 3 -->
       <div class="group">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://contents.mediadecathlon.com/p2551178/k$eb6826b704943d0b9dcc59cef9cd6271/bucket-hat-steppe-100-khaki-solognac-8341829.jpg" alt="Simple Bucket Hat" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">Simple Bucket Hat</h4>
-        <p class="text-gray-600 text-sm mb-2">$40</p>
+        <p class="text-gray-600 text-sm mb-2">IDR40</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -287,12 +217,10 @@
       <!-- Product 4 -->
       <div class="group hidden lg:block">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500&h=500&fit=crop" alt="Premium Watch" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">Premium Watch</h4>
-        <p class="text-gray-600 text-sm mb-2">$125</p>
+        <p class="text-gray-600 text-sm mb-2">IDR125</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -325,12 +253,10 @@
       <!-- Product 1 -->
       <div class="group">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop" alt="Premium T-Shirt" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">Premium T-Shirt</h4>
-        <p class="text-gray-600 text-sm mb-2">$45</p>
+        <p class="text-gray-600 text-sm mb-2">IDR45</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -340,12 +266,10 @@
       <!-- Product 2 -->
       <div class="group">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqjEHV-HLsuFz4_t7fpvEMUlHBnbc9pmG9yg&s" alt="Urban Hoodie" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">Urban Hoodie</h4>
-        <p class="text-gray-600 text-sm mb-2">$95</p>
+        <p class="text-gray-600 text-sm mb-2">IDR95</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -355,12 +279,10 @@
       <!-- Product 3 -->
       <div class="group">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop" alt="Classic Sneakers" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">Classic Sneakers</h4>
-        <p class="text-gray-600 text-sm mb-2">$120</p>
+        <p class="text-gray-600 text-sm mb-2">IDR120</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -370,12 +292,10 @@
       <!-- Product 4 -->
       <div class="group hidden lg:block">
         <div class="bg-gray-300 rounded-lg overflow-hidden mb-4 aspect-square flex items-center justify-center hover:shadow-lg transition-all duration-300">
-          <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=500&fit=crop" alt="Vintage Jacket" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" />
         </div>
         <h4 class="text-gray-900 font-semibold text-sm mb-1">Vintage Jacket</h4>
-        <p class="text-gray-600 text-sm mb-2">$150</p>
+        <p class="text-gray-600 text-sm mb-2">IDR150</p>
         <div class="flex gap-1">
           <span class="w-2 h-2 rounded-full bg-gray-400"></span>
           <span class="w-2 h-2 rounded-full bg-gray-300"></span>
@@ -468,4 +388,5 @@
 </footer>
     
 </body>
+  <script src="script.js"></script>
 </html>
