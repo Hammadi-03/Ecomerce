@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="stylr.css">
+  <style>
+    .size-btn { border:1px solid #E5E7EB; padding:.5rem .75rem; border-radius:.375rem; }
+    .size-btn.active { background:#111827; color:white; }
+  </style>
+</head>
+<body class="bg-white">
+  <nav class="sticky top-0 z-50 bg-white shadow-sm border-bg  bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-20 items-center justify-between gap-8">
+        <div class="flex shrink-0 items-center">
+          <img src="src/Layer_22.svg" alt=" brand-logo" style="width:49px;">
+          <h1 class="ml-3 text-xl font-bold text-gray-900">Brand for less</h1>
+        </div>
+        <div>
+          <a href="index.html" class="text-sm text-gray-700 hover:text-gray-900">← Back to shop</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <div id="product-wrap" class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+      <div id="product-img-wrap" class="bg-gray-100 rounded-lg p-4 flex items-center justify-center">
+        <img id="product-image" src="" alt="" class="w-full h-full object-contain max-h-96" />
+      </div>
+      <div>
+        <h1 id="product-title" class="text-2xl font-bold mb-2"></h1>
+        <p id="product-type" class="text-sm text-gray-500 mb-2"></p>
+        <p id="product-price" class="text-xl font-semibold mb-4"></p>
+        <div class="mb-4">
+          <label class="block text-sm text-gray-600 mb-2">Select size</label>
+          <div id="size-list" class="flex gap-2 flex-wrap"></div>
+        </div>
+        <p id="product-desc" class="text-gray-600 mb-6"></p>
+        <div class="flex gap-3">
+          <button id="add-to-cart" class="px-6 py-2 bg-gray-900 text-white rounded">Add to cart</button>
+          <button id="buy-now" class="px-6 py-2 border border-gray-300 rounded">Buy now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="products.js"></script>
+  <script src="product-page.js"></script>
+</body>
+</html>
