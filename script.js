@@ -130,12 +130,28 @@
                 if (lastFocus) lastFocus.focus();
             }
 
-            // Attach click handlers to product cards
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.addEventListener('click', (e) => {
+            // Attach click handlers to modal buttons (avoid interfering with page links)
+            document.querySelectorAll('.open-modal').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = btn.closest('.product-card');
+                    if (!card) return;
                     const id = card.getAttribute('data-product-id');
                     const product = productData[id];
                     if (product) openProductModal(product);
+                });
+            });
+
+            // For accessibility: make entire card focusable and open modal via Enter on focused card's View button
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.setAttribute('tabindex','0');
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        const id = card.getAttribute('data-product-id');
+                        const product = productData[id];
+                        if (product) openProductModal(product);
+                    }
                 });
             });
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="stylr.css">
+</head>
+<body class="bg-white">
+  <nav class="sticky top-0 z-50 bg-white shadow-sm border-bg  bg-black">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-20 items-center justify-between gap-8">
+        <div class="flex shrink-0 items-center">
+          <img src="src/Layer_22.svg" alt=" brand-logo" style="width:49px;">
+          <h1 class="ml-3 text-xl font-bold text-gray-900">Brand for less</h1>
+        </div>
+        <div>
+          <a href="index.html" class="text-sm text-gray-700 hover:text-gray-900">← Continue shopping</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <h2 class="text-2xl font-bold mb-6">Checkout</h2>
+    <div id="checkout-area"></div>
+  </main>
+
+  <script src="products.js"></script>
+  <script>
+    (function(){
+      const key = 'bf_cart_v1';
+      const raw = localStorage.getItem(key);
+      const cart = raw ? JSON.parse(raw) : [];
+      const wrap = document.getElementById('checkout-area');
+      if (!cart.length) { wrap.innerHTML = '<p>Your cart is empty. <a href="index.html" class="text-indigo-600">Shop now</a></p>'; return; }
+      let total = 0;
+      const rows = cart.map(item => {
+        const p = window.PRODUCTS[item.id];
+        const price = parseFloat((p.price.replace(/[^0-9.]/g,'')) || 0);
+        const line = price * item.qty;
+        total += line;
+        return `<div class="flex items-center gap-4 py-3 border-b"><img src="${p.img}" class="w-20 h-20 object-cover rounded"/><div><div class="font-semibold">${p.title}</div><div class="text-sm text-gray-500">Size: ${item.size || '—'}</div></div><div class="ml-auto font-semibold">IDR${line}</div></div>`;
+      }).join('');
+      wrap.innerHTML = `<div>${rows}</div><div class="mt-6 text-right font-bold">Total: IDR${total}</div><div class="mt-6"><button id="complete" class="px-6 py-2 bg-gray-900 text-white rounded">Complete Order</button></div>`;
+      document.getElementById('complete').addEventListener('click', ()=>{
+        localStorage.removeItem(key);
+        alert('Order completed. Thank you!');
+        window.location.href = 'index.html';
+      });
+    })();
+  </script>
+</body>
+</html>
