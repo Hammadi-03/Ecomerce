@@ -7,11 +7,27 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/jpg" href="src/Layer_2.svg">
+    <link rel="stylesheet" href="stylr.css">
+    <style>
+    /* Brand partners marquee */
+    .marquee { overflow: hidden; }
+    /* Track is paused by default; toggled to run via JS (marquee--running) */
+    .marquee__track { display: flex; gap: 4rem; align-items: center; white-space: nowrap; animation: marquee 20s linear infinite; animation-play-state: paused; }
+    .marquee__track.marquee--running { animation-play-state: running; }
+    .marquee__track:hover { animation-play-state: paused; }
+    .marquee__item { flex: 0 0 auto; color: #9CA3AF; font-weight: 700; font-size: 1.25rem; }
+    @media (min-width: 640px) { .marquee__item { font-size: 1.5rem; } }
+    @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none !important; } }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    </style>
 
 </head>
 <body>
     
-    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+    <nav class="sticky top-0 z-50 bg-white shadow-sm border-bg  bg-black">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-20 items-center justify-between gap-8">
       <!-- Logo -->
@@ -108,12 +124,22 @@
 <section class="bg-white py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
   <div class="mx-auto max-w-7xl">
     <h3 class="text-center text-gray-500 text-sm font-semibold uppercase tracking-wide mb-12">Brand Partners</h3>
-    <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-12">
-      <div class="text-gray-300 text-2xl sm:text-3xl font-bold">BURBERRY</div>
-      <div class="text-gray-300 text-2xl sm:text-3xl font-bold">Calvin Klein</div>
-      <div class="text-gray-300 text-2xl sm:text-3xl font-bold">PRADA</div>
-      <div class="text-gray-300 text-2xl sm:text-3xl font-bold">ZARA</div>
+
+    <div class="marquee mt-6">
+      <div class="marquee__track" aria-hidden="true">
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">BURBERRY</div>
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">Calvin Klein</div>
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">PRADA</div>
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">ZARA</div>
+
+        <!-- duplicate for seamless loop -->
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">BURBERRY</div>
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">Calvin Klein</div>
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">PRADA</div>
+        <div class="marquee__item text-gray-300 text-2xl sm:text-3xl font-bold">ZARA</div>
+      </div>
     </div>
+
   </div>
 </section>
 

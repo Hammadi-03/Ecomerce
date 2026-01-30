@@ -54,4 +54,41 @@
                     });
                 });
             }
+
+            // Brand partners marquee: start/pause when section scrolls into view (scroll-trigger-like)
+            (function() {
+                const marquee = document.querySelector('.marquee');
+                const track = marquee?.querySelector('.marquee__track');
+                if (!marquee || !track) return;
+
+                // Observe visibility of the marquee wrapper
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+                            track.classList.add('marquee--running');
+                        } else {
+                            track.classList.remove('marquee--running');
+                        }
+                    });
+                }, { threshold: [0, 0.1, 0.5, 1] });
+
+                io.observe(marquee);
+
+                // Pause when document hidden (tab change) and resume when visible and in view
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        track.classList.remove('marquee--running');
+                    } else {
+                        const rect = marquee.getBoundingClientRect();
+                        const inView = rect.top < window.innerHeight && rect.bottom >= 0;
+                        if (inView) track.classList.add('marquee--running');
+                    }
+                });
+
+                // On page load, if marquee is already in view, start it
+                const rect = marquee.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    track.classList.add('marquee--running');
+                }
+            })();
         });
